@@ -62,7 +62,7 @@
   
           $id_usuario = $_REQUEST['id_usuario'];
 
-          $rs = $this->ins_model->m_select($id_usuario)
+          $rs = $this->ins_model->m_select($id_usuario);
   
           //
           //ir al modelo, enviarle este id y que nos retorne nombre, los apellidos, y el usuario

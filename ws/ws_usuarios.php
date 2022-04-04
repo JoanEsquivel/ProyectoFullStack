@@ -15,7 +15,7 @@ switch ($accion) {
 
 
 function borrarUsuario(){
-  $conexion = new mysqli("localhost","root","","proyecto_Final");
+  $conexion = new mysqli("localhost","root","","proyecto_l");
   if (!$conexion) {
     echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
     echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
@@ -36,7 +36,7 @@ function borrarUsuario(){
 
 function listarUsuarios(){
 
-  $conexion = new mysqli("localhost","root","","proyecto_Final");
+  $conexion = new mysqli("localhost","root","","proyecto_l");
 
   if (!$conexion) {
     echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
@@ -46,7 +46,7 @@ function listarUsuarios(){
   }
 
 
-  $sql  = "select id_usuario, nombre, apellido1,apellido2,role,usuario from usuarios ";
+  $sql  = "select id_usuario, nombre, apell1,apell2,role,usuario from usuarios ";
   $rs  = $conexion->query($sql);
 
    $tablaUsuarios = "<h2>Lista de Usuarios</h2>";

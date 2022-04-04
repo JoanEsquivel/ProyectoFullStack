@@ -28,18 +28,17 @@
     </header>
 
     <main>
-
+        
         <section id="section">
 
             <h1 class="d1 color_text title_center mb-1">Registro de Clientes</h1>
 
       
-            <form id="frm_registro_pf" style="margin-top:20px;">
+            <!-- <form id="frm_registro_pf" style="margin-top:20px;"> -->
 
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" id="frm_registro_pf" style="margin-top:20px;">
             <input type="hidden" name="accion" value="crear_usuario">
-
-
+        
                 <div class="wrapper">
                     <section class="grid">
                         <div>
@@ -72,7 +71,7 @@
                         </div>
                         <div>
                             <label class="color_text" for="txt_telefono">Password</label>
-                            <input name="password" type="number" min="0" id="txt_telefono" placeholder="Escriba el password">
+                            <input name="password"  min="0" id="txt_telefono" placeholder="Escriba el password">
                         </div>
 
 
@@ -80,9 +79,8 @@
                     </section>
 
                 </div>
-
                 <div class="btn_enviar center">
-                    <button type="button" id="btn_registrar">Guardar</button>
+                    <button type="submit" id="btn_registrar">Guardar</button>
                 </div>
             </form>
         </section>

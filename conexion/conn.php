@@ -12,7 +12,7 @@ class conn{
         $this->server   = "localhost";
         $this->user     = "root";
         $this->password = "";
-        $this->dataBase = "proyecto_final";
+        $this->dataBase = "proyecto_l";
 
     }
 

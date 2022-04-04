@@ -1,12 +1,35 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.1.0, created on 2022-04-04 04:41:45
+  from 'C:\xampp\htdocs\Progra3-ProyectoFinal-master\view\templates\Frm_registro_Cliente.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.0',
+  'unifunc' => 'content_624a5ae9827307_96551820',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6b98d4c8256ba08d01650a608a1958b9fbabeac8' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Progra3-ProyectoFinal-master\\view\\templates\\Frm_registro_Cliente.tpl',
+      1 => 1649040101,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_624a5ae9827307_96551820 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Registro Cliente</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/general.css">
-    <link rel="stylesheet" href="/css/registrar_padre.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/registrar_padre.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 
@@ -28,13 +51,17 @@
     </header>
 
     <main>
-
+        
         <section id="section">
 
             <h1 class="d1 color_text title_center mb-1">Registro de Clientes</h1>
 
       
-            <form id="frm_registro_pf" style="margin-top:20px;">
+            <!-- <form id="frm_registro_pf" style="margin-top:20px;"> -->
+
+            <form action="index.php" method="post" id="frm_registro_pf" style="margin-top:20px;">
+            <input type="hidden" name="accion" value="crear_usuario">
+        
                 <div class="wrapper">
                     <section class="grid">
                         <div>
@@ -54,7 +81,7 @@
                         
                         <div>
                             <label class="color_text" for="txt_id">Usuario</label>
-                            <input name="usuario" type="number" min="0" id="txt_id" placeholder="Escriba el usuario">
+                            <input name="usuario" type="text" min="0" id="txt_id" placeholder="Escriba el usuario">
                         </div>
 
                         <div>
@@ -67,7 +94,7 @@
                         </div>
                         <div>
                             <label class="color_text" for="txt_telefono">Password</label>
-                            <input name="password" min="0" id="txt_telefono" placeholder="Escriba el password">
+                            <input name="password"  min="0" id="txt_telefono" placeholder="Escriba el password">
                         </div>
 
 
@@ -75,9 +102,8 @@
                     </section>
 
                 </div>
-
                 <div class="btn_enviar center">
-                    <button type="button" id="btn_registrar">Guardar</button>
+                    <button type="submit" id="btn_registrar">Guardar</button>
                 </div>
             </form>
         </section>
@@ -94,4 +120,5 @@
  
 </body>
 
-</html>
+</html><?php }
+}
