@@ -38,13 +38,10 @@
 
 
         }
-        function m_CrearUsuario($arr_usuario){
+        function m_registerUser($arr_user){
             $this->conn = $this->inst_conn->AbrirBD();
-            $sql = "insert into usuarios(usuario,pass,nombre,apell1,apell2,role) ";
-            //                  Usuario             Contrasenia                             nombre              apellido                apellido2           role
-            // $sql .= "values('".$arr_usuario[0]."',md5('proyecto_".$arr_usuario[1]."),'".$arr_usuario[2]."','".$arr_usuario[3]."','".$arr_usuario[4]."',".$arr_usuario[5].");";
-            $sql .= "VALUES ('".$arr_usuario[0]."', md5('proyecto_".$arr_usuario[1]."'), '".$arr_usuario[2]."', '".$arr_usuario[3]."', '".$arr_usuario[4]."', '".$arr_usuario[5]."');";
-            
+            $sql = "insert into usuarios_crm(user,password,username,lastname,id_role) ";
+            $sql .= "VALUES ('".$arr_user[0]."', md5('proyecto_".$arr_user[1]."'), '".$arr_user[2]."', '".$arr_user[3]."', ".$arr_user[4].");";
             $rs = $this->conn->query($sql);
             $this->inst_conn->CerrarBD();
 

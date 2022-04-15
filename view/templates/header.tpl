@@ -38,7 +38,7 @@
                         <a class="nav-link" href="#">All Customers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Customer</a>
+                        <a class="nav-link" href="#">My Customers</a>
                     </li>
                     {elseif {$role} eq "HR Partner"}
                     <li class="nav-item">
