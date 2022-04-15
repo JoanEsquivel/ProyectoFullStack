@@ -65,7 +65,7 @@
                     </li>
                     {/if}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="control/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

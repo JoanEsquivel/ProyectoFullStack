@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-15 20:35:36
+/* Smarty version 4.1.0, created on 2022-04-15 22:12:39
   from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6259baf8068040_15874251',
+  'unifunc' => 'content_6259d1b7105cc8_48897506',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85b0f195d70f74ab14f43b23921971cca7fe5f6d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\header.tpl',
-      1 => 1650047733,
+      1 => 1650053533,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6259baf8068040_15874251 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6259d1b7105cc8_48897506 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +101,7 @@ if ($_prefixVariable3 == "WareHouse Management User") {?>
                     </li>
                     <?php }}}?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="control/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

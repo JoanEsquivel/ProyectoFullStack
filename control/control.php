@@ -41,7 +41,15 @@
         }
 
         function LoginForm(){
-            $this->smarty->setDisplay("loginForm.tpl");
+            if(isset($_SESSION['USER'])){
+                $this->smarty->setAssign('role', $_SESSION['ROLE']);
+                $this->smarty->setAssign('user', $_SESSION['USER']);
+                $this->smarty->setDisplay('header.tpl');
+                $this->smarty->setDisplay('index.tpl');
+                $this->smarty->setDisplay('footer.tpl');
+            }else{
+                $this->smarty->setDisplay('loginForm.tpl');
+            }
         }
         function LoginValidation(){
             //Getting the information from the request - values set in the HTML
@@ -60,15 +68,17 @@
                     // 2- HR Partner
                     // 1- Customer Service
                     if($rs["id_role"]==3){
-                        $this->smarty->setAssign('role', "WareHouse Management User");
                         $_SESSION['ROLE'] = "WareHouse Management User";
+                        $this->smarty->setAssign('role', $_SESSION['ROLE']);
+                        
                     }
                     elseif($rs["id_role"]==2){
-                        $this->smarty->setAssign('role', "HR Partner");
                         $_SESSION['ROLE'] = "HR Partner";
+                        $this->smarty->setAssign('role', $_SESSION['ROLE']);
+                        
                     }else{
-                        $this->smarty->setAssign('role', "Customer Service");
                         $_SESSION['ROLE'] = "Customer Service";
+                        $this->smarty->setAssign('role', $_SESSION['ROLE']);   
                     }
                     $this->smarty->setAssign('user', $_SESSION['USER']);
                     $this->smarty->setAssign('id_user', $rs["id_user"]); 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-15 18:58:03
+/* Smarty version 4.1.0, created on 2022-04-15 22:04:50
   from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\loginForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6259a41bd83414_10396449',
+  'unifunc' => 'content_6259cfe2593af3_43337244',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '211d2184a5dc781df551caf194440be8b7467612' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\loginForm.tpl',
-      1 => 1650041876,
+      1 => 1650051025,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6259a41bd83414_10396449 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6259cfe2593af3_43337244 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +61,7 @@ function content_6259a41bd83414_10396449 (Smarty_Internal_Template $_smarty_tpl)
           <div id="formFooter">
             <a class="underlineHover" href="#">Forgot Password?</a>
             <p></p>
-            <a class="underlineHover" href="#">Sign In</a>
+            <a class="underlineHover" href="index.php?accion=signIn">Sign In</a>
           </div>
       
         </div>
