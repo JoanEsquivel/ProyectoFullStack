@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.1.0, created on 2022-04-15 20:35:36
+  from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.0',
+  'unifunc' => 'content_6259baf8068040_15874251',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '85b0f195d70f74ab14f43b23921971cca7fe5f6d' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\header.tpl',
+      1 => 1650047733,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6259baf8068040_15874251 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,9 +31,11 @@
     <title>CRM UH - HOME</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"><?php echo '</script'; ?>
+>
 </head>
 
 <body>
@@ -30,7 +55,10 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
-                    {if {$role} eq "Customer Service"}
+                    <?php ob_start();
+echo $_smarty_tpl->tpl_vars['role']->value;
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 == "Customer Service") {?>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">New Customer</a>
                     </li>
@@ -40,7 +68,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">My Customer</a>
                     </li>
-                    {elseif {$role} eq "HR Partner"}
+                    <?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['role']->value;
+$_prefixVariable2 = ob_get_clean();
+if ($_prefixVariable2 == "HR Partner") {?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Create a new employee</a>
                     </li>
@@ -53,7 +85,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Employees Salary</a>
                     </li>
-                    {elseif {$role} eq "WareHouse Management User"}
+                    <?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['role']->value;
+$_prefixVariable3 = ob_get_clean();
+if ($_prefixVariable3 == "WareHouse Management User") {?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Inventory</a>
                     </li>
@@ -63,7 +99,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">merchandise outcome</a>
                     </li>
-                    {/if}
+                    <?php }}}?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Logout</a>
                     </li>
@@ -76,4 +112,5 @@
             <h1 class="fw-bolder">Welcome to the UH - CRM </h1>
             <p class="lead">Home page to display username information</p>
         </div>
-    </header>
+    </header><?php }
+}

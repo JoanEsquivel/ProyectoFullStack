@@ -1,11 +1,11 @@
-    <footer class="main_footer">
-        <p class="white ml-1">&copy; Proyecto 2 Progra 3.</p>
-        <nav class="footer_nav mt-2 ml-1">
-            <a href="./index.html">Inicio</a>
-            
-        </nav>
-    </footer>
- 
+<footer class="bg-primary text-white text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">crm-uh.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
 </body>
 
 </html>
