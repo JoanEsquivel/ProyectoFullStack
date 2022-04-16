@@ -37,9 +37,12 @@
                 case "registerCustomer":
                     $this->RegisterCustomer();
                     break;
-                // case "editar_usuario":
-                //     $this->c_editarUsuario();
-                //     break;
+                case "showUpdateCustomerForm":
+                    $this->ShowUpdateCustomerForm();
+                    break;
+                case "updateCustomer":
+                    $this->UpdateCustomer();
+                    break;
                 // case "actualizar_usuario":
                 //     $this->c_editUsuario();
                 //     break;    
@@ -165,8 +168,6 @@
             if($rs){
                 echo("<p>Customer created successfully!</p>");
             }else {
-                // $this->smarty->setAssign("mensaje","Error creando usuario");
-                // $this->smarty->setDisplay("login.tpl");
                 echo("<p>User not created, try again.</p>");
             }
 
@@ -175,9 +176,72 @@
             $this->smarty->setDisplay('header.tpl');
             $this->smarty->setDisplay('registerCustomerForm.tpl');
             $this->smarty->setDisplay('footer.tpl'); 
+        }
+        function ShowUpdateCustomerForm(){
+            $customer_id = $_REQUEST['customer_id'];
+            $rs =  $this->ins_model->m_getCustomer($customer_id);
+            $this->smarty->setAssign("id_customer",$customer_id);
+            $this->smarty->setAssign("email",$rs['email']);
+            $this->smarty->setAssign("name",$rs['name']);
+            $this->smarty->setAssign("last_name",$rs['last_name']);
+            $this->smarty->setAssign("phone",$rs['phone']);
+            $this->smarty->setAssign("date_of_birth",$rs['date_of_birth']);
+            $this->smarty->setAssign("address",$rs['address']);
+            $this->smarty->setAssign("country",$rs['country']);
+            $this->smarty->setAssign("city",$rs['city']);
+            $this->smarty->setAssign("postal_code",$rs['postal_code']);
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('updateCustomerForm.tpl');
+            $this->smarty->setDisplay('footer.tpl'); 
+        }
+        function UpdateCustomer(){
+            $id_customer =  $_REQUEST["id_customer"];
+            $email =  $_REQUEST["email"];
+            $name =  $_REQUEST["name"];
+            $last_name =  $_REQUEST["last_name"];
+            $phone =  $_REQUEST["phone"];
+            $date_of_birth =  $_REQUEST["date_of_birth"];
+            $address =  $_REQUEST["address"];
+            $country =  $_REQUEST["country"];
+            $city =  $_REQUEST["city"];
+            $postal_code =  $_REQUEST["postal_code"];
+
+            $arr = array();
+            $arr[] = $id_customer;
+            $arr[] = $email;
+            $arr[] = $name;
+            $arr[] = $last_name;
+            $arr[] = $phone;
+            $arr[] = $date_of_birth;
+            $arr[] = $address;
+            $arr[] = $country;
+            $arr[] = $city;
+            $arr[] = $postal_code;
+
+            $rs =  $this->ins_model->m_updateCustomer($arr);
+
+            if($rs){
+                // $this->smarty->setAssign("mensaje","Usuario creado Correctamente");
+                // $this->smarty->setDisplay("login.tpl");
+                echo("<p>Customer Updated!</p>");
+            }else {
+                // $this->smarty->setAssign("mensaje","Error creando usuario");
+                // $this->smarty->setDisplay("login.tpl");
+                echo("<p>Customer NOT Updated!</p>");
+            }
+
+            if(isset($_SESSION['USER'])){
+                $this->smarty->setAssign('user', $_SESSION['USER']);
+                $this->smarty->setAssign('role', $_SESSION['ROLE']);
+                $this->smarty->setDisplay('header.tpl');
+                $this->smarty->setDisplay('registerCustomerForm.tpl');
+                $this->smarty->setDisplay('footer.tpl');
+            }
+            
             
         }
-
         
     }
 ?>

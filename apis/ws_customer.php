@@ -61,7 +61,7 @@
                     $cuerpoTabla .= "<td>".$fila['city']."</td>";
                     $cuerpoTabla .= "<td>".$fila['postal_code']."</td>";
                     $cuerpoTabla .= "<td>";
-                    $cuerpoTabla .= "<a class='edit' href='index.php?accion=abrirFormActualizarNotas&id_usuario=".$fila['id_customer']."' title='Edit' data-toggle='tooltip' onclick='editarNota(".$fila['id_customer'].");'><i class='material-icons'>&#xE254;</i></a>";
+                    $cuerpoTabla .= "<a class='edit' href='index.php?accion=showUpdateCustomerForm&customer_id=".$fila['id_customer']."' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>";
                     $cuerpoTabla .= "<a class='delete' title='Delete' data-toggle='tooltip' onclick='deleteCustomer(".$fila['id_customer'].");'><i class='material-icons'>&#xE872;</i></a>";
                     $cuerpoTabla .= "</td>";
                 $cuerpoTabla .=  "</tr>";

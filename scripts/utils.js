@@ -15,6 +15,7 @@ function getCustomers(){
         $("section").hide();
         //Adding and removing active class.
         $("ul li.nav-item:nth-child(1) a").removeClass("active")
+        $("ul li.nav-item:nth-child(2) a").removeClass("active")
         $("ul li.nav-item:nth-child(3) a").addClass("active")
         
       });

@@ -32,7 +32,7 @@
       
           <!-- Remind Passowrd -->
           <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
             <p></p>
             <a class="underlineHover" href="index.php?accion=SignIn">Sign In</a>
           </div>

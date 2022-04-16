@@ -98,45 +98,37 @@
 
             // return $rs;
         }
-        function m_editarUsuario($arr_usuario, $id_usuario){
+        function m_updateCustomer($arr_customer){
             $this->conn = $this->inst_conn->AbrirBD();
             //
             // $sql = "insert into usuarios(usuario,pass,nombre,apell1,apell2,role) ";
             // $sql .= "values('".$arr_usuario[0]."',md5('proyecto_".$arr_usuario[1]."'), '".$arr_usuario[2]."','".$arr_usuario[3]."','".$arr_usuario[4]."',".$arr_usuario[5].");";
             // $rs  = $this->conn->query($sql);
             
-            $sql = "update usuarios set usuario = '".$arr_usuario[1]."', nombre = '".$arr_usuario[2]."', apell1 = '".$arr_usuario[3]."', apell2 = '".$arr_usuario[4]."' where id_usuario = ".$id_usuario.";";
+            $sql = "UPDATE customers_crm set email = '".$arr_customer[1]."', name = '".$arr_customer[2]."', last_name = '".$arr_customer[3]."', phone = '".$arr_customer[4]."', date_of_birth = '".$arr_customer[5]."', address = '".$arr_customer[6]."', country = '".$arr_customer[7]."', city = '".$arr_customer[8]."', postal_code = '".$arr_customer[9]."' where id_customer = ".$arr_customer[0].";";
             $rs  = $this->conn->query($sql);
-
-            $sqlNotas = "update notas set matematica = ".$arr_usuario[5].", espaniol = ".$arr_usuario[6].", ciencias = ".$arr_usuario[7].", estudios_sociales = ".$arr_usuario[8].", ingles = ".$arr_usuario[9]." where id_usuario = ".$id_usuario.";";
-            $rs  = $this->conn->query($sqlNotas);
 
             $this->inst_conn->CerrarBD();
             return true;
         }
-        function m_obtenerNota(){
+        function m_getCustomer($customer_id){
             $this->conn = $this->inst_conn->AbrirBD();
             $arr_rs = array();
-            $id_usuario = $_REQUEST['id_usuario'];
-            $sql = "SELECT u.id_usuario,pass,usuario,nombre,apell1,apell2,matematica,espaniol,ciencias,estudios_sociales,ingles, role FROM usuarios u INNER JOIN notas n ON u.id_usuario = n.id_usuario WHERE u.id_usuario =".$id_usuario;
+            $sql = "SELECT email, name, last_name, phone, date_of_birth, address, country, city, postal_code FROM customers_crm  WHERE id_customer =".$customer_id;
             $rs = $this->conn->query($sql);
             while($fila = $rs->fetch_assoc()){
-                $arr_rs["id_usuario"] =  $fila['id_usuario'];
-                $arr_rs["usuario"] =  $fila['usuario'];
-                $arr_rs["nombre"] =  $fila['nombre'];
-                $arr_rs["apell1"] =  $fila['apell1'];
-                $arr_rs["apell2"] =  $fila['apell2'];
-                $arr_rs["matematica"] =  $fila['matematica'];
-                $arr_rs["espaniol"] =  $fila['espaniol'];
-                $arr_rs["ciencias"] =  $fila['ciencias'];
-                $arr_rs["estudios_sociales"] =  $fila['estudios_sociales'];
-                $arr_rs["ingles"] =  $fila['ingles'];
-                $arr_rs["pass"] =  $fila['pass'];
+                $arr_rs["email"] =  $fila['email'];
+                $arr_rs["name"] =  $fila['name'];
+                $arr_rs["last_name"] =  $fila['last_name'];
+                $arr_rs["phone"] =  $fila['phone'];
+                $arr_rs["date_of_birth"] =  $fila['date_of_birth'];
+                $arr_rs["address"] =  $fila['address'];
+                $arr_rs["country"] =  $fila['country'];
+                $arr_rs["city"] =  $fila['city'];
+                $arr_rs["postal_code"] =  $fila['postal_code'];
             }
             $this->conn = $this->inst_conn->CerrarBD();
             return $arr_rs;
-            // echo $arr_rs;
-            // exit;
         }
     }
 
