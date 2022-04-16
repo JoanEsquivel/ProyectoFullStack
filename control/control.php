@@ -225,19 +225,28 @@
             if($rs){
                 // $this->smarty->setAssign("mensaje","Usuario creado Correctamente");
                 // $this->smarty->setDisplay("login.tpl");
-                echo("<p>Customer Updated!</p>");
             }else {
                 // $this->smarty->setAssign("mensaje","Error creando usuario");
                 // $this->smarty->setDisplay("login.tpl");
-                echo("<p>Customer NOT Updated!</p>");
+
             }
 
             if(isset($_SESSION['USER'])){
+                $this->smarty->setAssign("id_customer",$id_customer);
+                $this->smarty->setAssign("email",$email);
+                $this->smarty->setAssign("name",$name);
+                $this->smarty->setAssign("last_name",$last_name);
+                $this->smarty->setAssign("phone",$phone);
+                $this->smarty->setAssign("date_of_birth",$date_of_birth);
+                $this->smarty->setAssign("address",$address);
+                $this->smarty->setAssign("country",$country);
+                $this->smarty->setAssign("city",$city);
+                $this->smarty->setAssign("postal_code",$postal_code);
                 $this->smarty->setAssign('user', $_SESSION['USER']);
                 $this->smarty->setAssign('role', $_SESSION['ROLE']);
                 $this->smarty->setDisplay('header.tpl');
-                $this->smarty->setDisplay('registerCustomerForm.tpl');
-                $this->smarty->setDisplay('footer.tpl');
+                $this->smarty->setDisplay('updateCustomerForm.tpl');
+                $this->smarty->setDisplay('footer.tpl'); 
             }
             
             
