@@ -7,5 +7,6 @@
     <!-- Copyright -->
 </footer>
 </body>
+<script  src="scripts/utils.js"></script>  
 
 </html>

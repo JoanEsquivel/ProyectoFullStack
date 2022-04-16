@@ -48,6 +48,16 @@
             return $rs;
             
         }
+        function m_registerCustomer($arr_user){
+            $this->conn = $this->inst_conn->AbrirBD();
+            $sql = "insert into customers_crm(email,name,last_name,phone,date_of_birth,address,country,city,postal_code) ";
+            $sql .= "VALUES ('".$arr_user[0]."', '".$arr_user[1]."', '".$arr_user[2]."', '".$arr_user[3]."', '".$arr_user[4]."', '".$arr_user[5]."', '".$arr_user[6]."', '".$arr_user[7]."', ".$arr_user[8].");";
+            $rs = $this->conn->query($sql);
+            $this->inst_conn->CerrarBD();
+
+            return $rs;
+            
+        }
         function m_crearNota($usuario, $pass){
 
             $this->conn = $this->inst_conn->AbrirBD();

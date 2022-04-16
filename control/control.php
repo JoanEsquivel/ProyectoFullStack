@@ -31,6 +31,12 @@
                 case "registerUser":
                     $this->RegisterNewUser();
                     break;
+                case "addCustomerForm":
+                    $this->AddCustomerForm();
+                    break;
+                case "registerCustomer":
+                    $this->RegisterCustomer();
+                    break;
                 // case "editar_usuario":
                 //     $this->c_editarUsuario();
                 //     break;
@@ -124,6 +130,52 @@
                 echo("<p>User not created, try again.</p>");
                 $this->smarty->setDisplay('registerUserForm.tpl');
             }
+        }
+        function AddCustomerForm(){
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('registerCustomerForm.tpl');
+            $this->smarty->setDisplay('footer.tpl'); 
+        }
+        function RegisterCustomer(){
+            $email =  $_REQUEST["email"];
+            $name =  $_REQUEST["name"];
+            $last_name =  $_REQUEST["last_name"];
+            $phone =  $_REQUEST["phone"];
+            $date_of_birth =  $_REQUEST["date_of_birth"];
+            $address =  $_REQUEST["address"];
+            $country =  $_REQUEST["country"];
+            $city =  $_REQUEST["city"];
+            $postal_code =  $_REQUEST["postal_code"];
+
+            $arr = array();
+            $arr[] = $email;
+            $arr[] = $name;
+            $arr[] = $last_name;
+            $arr[] = $phone;
+            $arr[] = $date_of_birth;
+            $arr[] = $address;
+            $arr[] = $country;
+            $arr[] = $city;
+            $arr[] = $postal_code;
+
+            $rs =  $this->ins_model->m_registerCustomer($arr);
+
+            if($rs){
+                echo("<p>Customer created successfully!</p>");
+            }else {
+                // $this->smarty->setAssign("mensaje","Error creando usuario");
+                // $this->smarty->setDisplay("login.tpl");
+                echo("<p>User not created, try again.</p>");
+            }
+
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('registerCustomerForm.tpl');
+            $this->smarty->setDisplay('footer.tpl'); 
+            
         }
 
         
