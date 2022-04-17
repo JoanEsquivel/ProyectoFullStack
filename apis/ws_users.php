@@ -12,6 +12,9 @@
         case 'payrolReport':
             GeneratePayrollReport();
             break;
+        case 'getPayrollReport':
+            GetPayrollReport();
+            break;
         case 'deleteUser':
                 deleteUser();
                 break;
@@ -65,7 +68,7 @@
             }
         $cuerpoTabla .= "</tbody>";
         $cuerpoTabla .= "</div>";
-        $cuerpoTabla .= "<a href='#' title='generateReport' onclick='genereReport();'>Generate PayRoll Report(based on today's date)</a>";
+        $cuerpoTabla .= "<a href='#' title='generateReport' onclick='genereReport();'>Generate PayRoll Report(based on current date)</a>";
         $cuerpoTabla .= "</div>";
 
         header("HTTP/1.1 200 OK");
@@ -141,6 +144,29 @@
 
         header("HTTP/1.1 200 OK");
 
+        exit;
+    }
+
+    function GetPayrollReport(){
+        //Creando la coneccion
+        $conexion = new mysqli("localhost","root","","proyecto_l");
+        if (!$conexion) {
+        echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+        echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+        echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+        exit;
+        }
+
+        //Realizando la consulta
+        $sql = "SELECT id_payment,id_user,salary_amount,report_date FROM payment_crm order by report_date desc";
+        $rs = $conexion->query($sql);
+        $conexion->close();
+        
+        $rows = $rs->fetch_all(MYSQLI_ASSOC);
+
+        header("HTTP/1.1 200 OK");
+        // echo $cuerpoTabla;
+        echo json_encode($rows);
         exit;
     }
 

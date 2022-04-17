@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-17 05:35:51
+/* Smarty version 4.1.0, created on 2022-04-17 10:30:28
   from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_625b8b17ed96f2_94691752',
+  'unifunc' => 'content_625bd024e03b26_67178128',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85b0f195d70f74ab14f43b23921971cca7fe5f6d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\header.tpl',
-      1 => 1650166340,
+      1 => 1650184224,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_625b8b17ed96f2_94691752 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625bd024e03b26_67178128 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +36,7 @@ function content_625b8b17ed96f2_94691752 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="css/table-report.css">
     <?php echo '<script'; ?>
  src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
@@ -160,7 +161,7 @@ if ($_prefixVariable2 == "HR Partner") {?>
                         <a class="nav-link" href="#" onclick='getSalaries();'>Salary Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick='getSalaries();'>Payrol Report</a>
+                        <a class="nav-link" href="#" onclick='getPayrollReport();'>Payrol Report</a>
                     </li>
                     <?php } else {
 ob_start();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-15 20:21:53
+/* Smarty version 4.1.0, created on 2022-04-17 10:58:03
   from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6259b7c1520566_15179699',
+  'unifunc' => 'content_625bd69bebb338_66048709',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a963eca1b00bbca6ddeb64117de3cd70d8dff9c6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\index.tpl',
-      1 => 1650046908,
+      1 => 1650185880,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6259b7c1520566_15179699 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625bd69bebb338_66048709 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section id="about">
     <div class="container px-4">
         <div class="row gx-4 justify-content-center">
@@ -57,6 +57,8 @@ function content_6259b7c1520566_15179699 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 </section>
+
+<div id="table" class="container-lg"></div>
 
 <?php }
 }
