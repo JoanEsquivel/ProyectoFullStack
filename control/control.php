@@ -43,6 +43,12 @@
                 case "updateCustomer":
                     $this->UpdateCustomer();
                     break;
+                case "addEmployeeForm":
+                    $this->ShowRegisterEmployeeForm();
+                    break;
+                case "registerEmployee":
+                    $this->RegisterNewEmployee();
+                    break;
                 // case "actualizar_usuario":
                 //     $this->c_editUsuario();
                 //     break;    
@@ -249,6 +255,44 @@
                 $this->smarty->setDisplay('footer.tpl'); 
             }
             
+            
+        }
+        function ShowRegisterEmployeeForm(){
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('registerEmployeeForm.tpl');
+            $this->smarty->setDisplay('footer.tpl');  
+        }
+        function RegisterNewEmployee(){
+            $user =  $_REQUEST["user"];
+            $password =  $_REQUEST["password"];
+            $username =  $_REQUEST["username"];
+            $lastname =  $_REQUEST["lastname"];
+            $id_role =  $_REQUEST["id_role"];
+
+
+            $arr = array();
+            $arr[] = $user;
+            $arr[] = $password;
+            $arr[] = $username;
+            $arr[] = $lastname;
+            $arr[] = $id_role;
+
+
+            $rs =  $this->ins_model->m_registerUser($arr);
+
+            if($rs){     
+            }else {
+                // $this->smarty->setAssign("mensaje","Error creando usuario");
+                // $this->smarty->setDisplay("login.tpl");
+                echo("<p>User not created, try again.</p>"); 
+            }
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('registerUserForm.tpl');
+            $this->smarty->setDisplay('footer.tpl');  
             
         }
         

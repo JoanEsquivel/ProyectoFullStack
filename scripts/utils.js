@@ -21,6 +21,67 @@ function getCustomers(){
       });
 }
 
+function getUsers(){
+    
+  var settings = {
+      "url": "http://localhost/proyectoPrograFinal/apis/ws_users.php?accion=getUsers",
+      "method": "GET",
+      "timeout": 0,
+    };
+    $.ajax(settings).done(function (response) {
+      console.log(response)
+      //This hide prevent the website to render infinite tables.
+      $(".container-lg").hide();
+      //This append the table from the API response
+      $( "header" ).append(response);
+      //Hidding sections from home
+      $("section").hide();
+      //Adding and removing active class.
+      $("ul li.nav-item:nth-child(1) a").removeClass("active")
+      $("ul li.nav-item:nth-child(2) a").removeClass("active")
+      $("ul li.nav-item:nth-child(3) a").addClass("active")
+      $("ul li.nav-item:nth-child(4) a").removeClass("active")
+      
+    });
+}
+
+function getSalaries(){
+    
+  var settings = {
+      "url": "http://localhost/proyectoPrograFinal/apis/ws_users.php?accion=getSalaries",
+      "method": "GET",
+      "timeout": 0,
+    };
+    $.ajax(settings).done(function (response) {
+      console.log(response)
+      //This hide prevent the website to render infinite tables.
+      $(".container-lg").hide();
+      //This append the table from the API response
+      $( "header" ).append(response);
+      //Hidding sections from home
+      $("section").hide();
+      //Adding and removing active class.
+      $("ul li.nav-item:nth-child(1) a").removeClass("active")
+      $("ul li.nav-item:nth-child(2) a").removeClass("active")
+      $("ul li.nav-item:nth-child(3) a").removeClass("active")
+      $("ul li.nav-item:nth-child(4) a").addClass("active")
+      
+    });
+}
+
+function genereReport(){
+    
+  var settings = {
+      "url": "http://localhost/proyectoPrograFinal/apis/ws_users.php?accion=payrolReport",
+      "method": "GET",
+      "timeout": 0,
+    };
+    $.ajax(settings).done(function (response) {
+      alert("Report Generated");
+      
+    });
+}
+
 function desplegarNota(id_usuario){
     var settings = {
         "url": "http://localhost/proyectoProgra/ws/ws_notas.php?accion=obtener_nota&id_usuario="+id_usuario,
@@ -69,8 +130,3 @@ function editarNota(id_usuario){
         $( "body" ).html(response);
         });      
 }
-
-window.onload = function() {
-    // desplegarNotas()
-    // desplegarNota()
-   }

@@ -105,16 +105,16 @@
                     </li>
                     {elseif {$role} eq "HR Partner"}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create a new employee</a>
+                        <a class="nav-link" href="index.php?accion=addEmployeeForm">Create a new employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Get all employees</a>
+                        <a class="nav-link" href="#" onclick='getUsers();' >Employees Details</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vacations per employee</a>
+                        <a class="nav-link" href="#" onclick='getSalaries();'>Salary Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Employees Salary</a>
+                        <a class="nav-link" href="#" onclick='getSalaries();'>Payrol Report</a>
                     </li>
                     {elseif {$role} eq "WareHouse Management User"}
                     <li class="nav-item">

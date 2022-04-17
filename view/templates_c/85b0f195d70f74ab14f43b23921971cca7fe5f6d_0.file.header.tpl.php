@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-16 22:10:33
+/* Smarty version 4.1.0, created on 2022-04-17 05:35:51
   from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_625b22b95d6a70_35212154',
+  'unifunc' => 'content_625b8b17ed96f2_94691752',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85b0f195d70f74ab14f43b23921971cca7fe5f6d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\header.tpl',
-      1 => 1650139831,
+      1 => 1650166340,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_625b22b95d6a70_35212154 (Smarty_Internal_Template $_smarty_tpl) {
+function content_625b8b17ed96f2_94691752 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -151,16 +151,16 @@ echo $_smarty_tpl->tpl_vars['role']->value;
 $_prefixVariable2 = ob_get_clean();
 if ($_prefixVariable2 == "HR Partner") {?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create a new employee</a>
+                        <a class="nav-link" href="index.php?accion=addEmployeeForm">Create a new employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Get all employees</a>
+                        <a class="nav-link" href="#" onclick='getUsers();' >Employees Details</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vacations per employee</a>
+                        <a class="nav-link" href="#" onclick='getSalaries();'>Salary Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Employees Salary</a>
+                        <a class="nav-link" href="#" onclick='getSalaries();'>Payrol Report</a>
                     </li>
                     <?php } else {
 ob_start();
