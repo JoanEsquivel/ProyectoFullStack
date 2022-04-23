@@ -16,7 +16,7 @@
             GetPayrollReport();
             break;
         case 'deleteUser':
-                deleteUser();
+                DeleteUser();
                 break;
     }
 
@@ -61,8 +61,8 @@
                     $cuerpoTabla .= "<td>".$fila['vacation_days']."</td>";
                     $cuerpoTabla .= "<td>".$fila['salary_amount']."</td>";
                     $cuerpoTabla .= "<td>";
-                    $cuerpoTabla .= "<a class='edit' href='index.php?accion=openUpdateUserForm&id_usuario=".$fila['id_user']."' title='Edit' data-toggle='tooltip');'><i class='material-icons'>&#xE254;</i></a>";
-                    $cuerpoTabla .= "<a class='delete' title='Delete' data-toggle='tooltip' onclick='deleteUser(".$fila['id_user'].");'><i class='material-icons'>&#xE872;</i></a>";
+                    $cuerpoTabla .= "<a class='edit' href='index.php?accion=openUpdateEmployeeForm&id_user=".$fila['id_user']."' title='Edit' data-toggle='tooltip');'><i class='material-icons'>&#xE254;</i></a>";
+                    $cuerpoTabla .= "<a class='delete' title='Delete' data-toggle='tooltip' onclick='deleteEmployee(".$fila['id_user'].");'><i class='material-icons'>&#xE872;</i></a>";
                     $cuerpoTabla .= "</td>";
                 $cuerpoTabla .=  "</tr>";
             }
@@ -112,7 +112,7 @@
                     $cuerpoTabla .= "<td>".$fila['id_role']."</td>";
                     $cuerpoTabla .= "<td>".$fila['salary_amount']."</td>";
                     $cuerpoTabla .= "<td>";
-                    $cuerpoTabla .= "<a class='edit' href='index.php?accion=openUpdateUserForm&id_usuario=".$fila['id_salary']."' title='Edit' data-toggle='tooltip');'><i class='material-icons'>&#xE254;</i></a>";
+                    $cuerpoTabla .= "<a class='edit' href='index.php?accion=openUpdateSalaryForm&id_salary=".$fila['id_salary']."' title='Edit' data-toggle='tooltip');'><i class='material-icons'>&#xE254;</i></a>";
                     $cuerpoTabla .= "</td>";
                 $cuerpoTabla .=  "</tr>";
             }
@@ -211,7 +211,7 @@
         exit;
     }
 
-    function deleteUser(){
+    function DeleteUser(){
         $conexion = new mysqli("localhost","root","","proyecto_l");
         if (!$conexion) {
           echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
@@ -219,8 +219,8 @@
           echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
           exit;
         }
-        $id_usuario = $_REQUEST['id_usuario'];
-        $sql = "DELETE FROM customers_crm WHERE `customers_crm`.`id_customer` = ".$id_usuario;
+        $id_user = $_REQUEST['id_user'];
+        $sql = "DELETE FROM usuarios_crm WHERE id_user = ".$id_user;
         $rs  = $conexion->query($sql);
       
         $conexion->close();

@@ -130,6 +130,51 @@
             $this->conn = $this->inst_conn->CerrarBD();
             return $arr_rs;
         }
+        function m_getEmployee($id_user){
+            $this->conn = $this->inst_conn->AbrirBD();
+            $arr_rs = array();
+            $sql = "SELECT user, username, lastname, id_role, vacation_days FROM usuarios_crm  WHERE id_user =".$id_user;
+            $rs = $this->conn->query($sql);
+            while($fila = $rs->fetch_assoc()){
+                $arr_rs["user"] =  $fila['user'];
+                $arr_rs["username"] =  $fila['username'];
+                $arr_rs["lastname"] =  $fila['lastname'];
+                $arr_rs["id_role"] =  $fila['id_role'];
+                $arr_rs["vacation_days"] =  $fila['vacation_days'];
+            }
+            $this->conn = $this->inst_conn->CerrarBD();
+            return $arr_rs;
+        }
+        function m_updateEmployee($arr_customer){
+            $this->conn = $this->inst_conn->AbrirBD();
+
+            $sql = "UPDATE usuarios_crm set user = '".$arr_customer[1]."', username = '".$arr_customer[2]."', lastname = '".$arr_customer[3]."', id_role = ".$arr_customer[4].", vacation_days = ".$arr_customer[5]." where id_user = ".$arr_customer[0].";";
+            $rs  = $this->conn->query($sql);
+
+            $this->inst_conn->CerrarBD();
+            return true;
+        }
+        function m_getSalary($id_salary){
+            $this->conn = $this->inst_conn->AbrirBD();
+            $arr_rs = array();
+            $sql = "SELECT id_role, salary_amount FROM salary_crm  WHERE id_salary =".$id_salary;
+            $rs = $this->conn->query($sql);
+            while($fila = $rs->fetch_assoc()){
+                $arr_rs["id_role"] =  $fila['id_role'];
+                $arr_rs["salary_amount"] =  $fila['salary_amount'];
+            }
+            $this->conn = $this->inst_conn->CerrarBD();
+            return $arr_rs;
+        }
+        function m_updateSalary($arr_customer){
+            $this->conn = $this->inst_conn->AbrirBD();
+
+            $sql = "UPDATE salary_crm set id_role = ".$arr_customer[1].", salary_amount = ".$arr_customer[2]." where id_salary = ".$arr_customer[0].";";
+            $rs  = $this->conn->query($sql);
+
+            $this->inst_conn->CerrarBD();
+            return true;
+        }
     }
 
 ?>

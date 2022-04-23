@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-17 04:37:04
+/* Smarty version 4.1.0, created on 2022-04-23 06:14:05
   from 'C:\xampp\htdocs\proyectoPrograFinal\view\templates\registerEmployeeForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_625b7d50ef6112_26360098',
+  'unifunc' => 'content_62637d0dd7a5c2_82366642',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c97e714a4537f17c4ef384565f044f0e1e49ab85' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectoPrograFinal\\view\\templates\\registerEmployeeForm.tpl',
-      1 => 1650163023,
+      1 => 1650687157,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_625b7d50ef6112_26360098 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62637d0dd7a5c2_82366642 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 

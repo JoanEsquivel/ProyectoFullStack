@@ -49,9 +49,21 @@
                 case "registerEmployee":
                     $this->RegisterNewEmployee();
                     break;
-                // case "actualizar_usuario":
-                //     $this->c_editUsuario();
-                //     break;    
+                case "openUpdateEmployeeForm":
+                    $this->ShowUpdateEmployeeForm();
+                    break;
+                case "updateEmployee":
+                    $this->UpdateEmployee();
+                    break;
+                case "openUpdateSalaryForm":
+                    $this->ShowUpdateSalaryForm();
+                    break;
+                case "updateEmployee":
+                    $this->UpdateEmployee();
+                    break;
+                case "updateSalary":
+                    $this->UpdateSalary();
+                    break;
             }
         }
 
@@ -202,6 +214,33 @@
             $this->smarty->setDisplay('updateCustomerForm.tpl');
             $this->smarty->setDisplay('footer.tpl'); 
         }
+        function ShowUpdateEmployeeForm(){
+            $id_user = $_REQUEST['id_user'];
+            $rs =  $this->ins_model-> m_getEmployee($id_user);
+            $this->smarty->setAssign("id_user",$id_user);
+            $this->smarty->setAssign("usern",$rs['user']);
+            $this->smarty->setAssign("username",$rs['username']);
+            $this->smarty->setAssign("lastname",$rs['lastname']);
+            $this->smarty->setAssign("id_role",$rs['id_role']);
+            $this->smarty->setAssign("vacation_days",$rs['vacation_days']);
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('updateEmployeeForm.tpl');
+            $this->smarty->setDisplay('footer.tpl'); 
+        }
+        function ShowUpdateSalaryForm(){
+            $id_salary = $_REQUEST['id_salary'];
+            $rs =  $this->ins_model-> m_getSalary($id_salary);
+            $this->smarty->setAssign("id_salary",$id_salary);
+            $this->smarty->setAssign("id_role",$rs['id_role']);
+            $this->smarty->setAssign("salary_amount",$rs['salary_amount']);
+            $this->smarty->setAssign('user', $_SESSION['USER']);
+            $this->smarty->setAssign('role', $_SESSION['ROLE']);
+            $this->smarty->setDisplay('header.tpl');
+            $this->smarty->setDisplay('updateSalaryForm.tpl');
+            $this->smarty->setDisplay('footer.tpl'); 
+        }
         function UpdateCustomer(){
             $id_customer =  $_REQUEST["id_customer"];
             $email =  $_REQUEST["email"];
@@ -293,6 +332,89 @@
             $this->smarty->setDisplay('header.tpl');
             $this->smarty->setDisplay('registerUserForm.tpl');
             $this->smarty->setDisplay('footer.tpl');  
+            
+        }
+        function UpdateEmployee(){
+            $id_user =  $_REQUEST["id_user"];
+            $user =  $_REQUEST["user"];
+            $username =  $_REQUEST["username"];
+            $lastname =  $_REQUEST["lastname"];
+            $id_role =  $_REQUEST["id_role"];
+            $vacation_days =  $_REQUEST["vacation_days"];
+
+
+            $arr = array();
+            $arr[] = $id_user;
+            $arr[] = $user;
+            $arr[] = $username;
+            $arr[] = $lastname;
+            $arr[] = $id_role;
+            $arr[] = $vacation_days;
+
+
+            $rs =  $this->ins_model->m_updateEmployee($arr);
+
+            if($rs){
+                // $this->smarty->setAssign("mensaje","Usuario creado Correctamente");
+                // $this->smarty->setDisplay("login.tpl");
+            }else {
+                // $this->smarty->setAssign("mensaje","Error creando usuario");
+                // $this->smarty->setDisplay("login.tpl");
+
+            }
+
+            if(isset($_SESSION['USER'])){
+                $this->smarty->setAssign("id_user",$id_user);
+                $this->smarty->setAssign("usern",$user);
+                $this->smarty->setAssign("username",$username);
+                $this->smarty->setAssign("lastname",$lastname);
+                $this->smarty->setAssign("id_role",$id_role);
+                $this->smarty->setAssign("vacation_days",$vacation_days);
+                $this->smarty->setAssign('user', $_SESSION['USER']);
+                $this->smarty->setAssign('role', $_SESSION['ROLE']);
+                $this->smarty->setDisplay('header.tpl');
+                $this->smarty->setDisplay('updateEmployeeForm.tpl');
+                $this->smarty->setDisplay('footer.tpl'); 
+            }
+            
+            
+        }
+        function UpdateSalary(){
+            $id_salary =  $_REQUEST["id_salary"];
+            $id_role =  $_REQUEST["id_role"];
+            $salary_amount =  $_REQUEST["salary_amount"];
+
+
+
+            $arr = array();
+            $arr[] = $id_salary;
+            $arr[] = $id_role;
+            $arr[] = $salary_amount;
+  
+
+
+            $rs =  $this->ins_model->m_updateSalary($arr);
+
+            if($rs){
+                // $this->smarty->setAssign("mensaje","Usuario creado Correctamente");
+                // $this->smarty->setDisplay("login.tpl");
+            }else {
+                // $this->smarty->setAssign("mensaje","Error creando usuario");
+                // $this->smarty->setDisplay("login.tpl");
+
+            }
+
+            if(isset($_SESSION['USER'])){
+                $this->smarty->setAssign("id_salary",$id_salary);
+                $this->smarty->setAssign("id_role",$id_role);
+                $this->smarty->setAssign("salary_amount",$salary_amount);
+                $this->smarty->setAssign('user', $_SESSION['USER']);
+                $this->smarty->setAssign('role', $_SESSION['ROLE']);
+                $this->smarty->setDisplay('header.tpl');
+                $this->smarty->setDisplay('updateSalaryForm.tpl');
+                $this->smarty->setDisplay('footer.tpl'); 
+            }
+            
             
         }
         
