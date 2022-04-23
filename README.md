@@ -7,7 +7,7 @@
 In order to run this project you need to:
 
 This application is a small CRM Tool with 3 type of employees: Customer Service, Human Resources, and data warehouse admins.
-- Login Module
+- Login / SignIn Module 
 - Customer Service User: Can Add, Edit, Get, and Update customers.
 - HR Module: Can Add, Edit, Get and, Update employees. Also, this module can generate a report based on the current employees, salaries and current date.
 - Data Warehouse Management Module: Was not developed.
